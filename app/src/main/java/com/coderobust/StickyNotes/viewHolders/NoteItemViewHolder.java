@@ -1,4 +1,4 @@
-package com.coderobust.StickyNotes;
+package com.coderobust.StickyNotes.viewHolders;
 
 import android.view.View;
 import android.widget.LinearLayout;
@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.coderobust.StickyNotes.R;
 
 public class NoteItemViewHolder extends RecyclerView.ViewHolder {
-    TextView title;
-    TextView details;
-    TextView date;
-    LinearLayout post;
+    public TextView title;
+    public TextView details;
+    public TextView date;
+    public LinearLayout post;
     public NoteItemViewHolder(@NonNull View itemView) {
         super(itemView);
         title=itemView.findViewById(R.id.title);

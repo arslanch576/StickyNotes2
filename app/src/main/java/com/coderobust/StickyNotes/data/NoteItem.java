@@ -1,4 +1,4 @@
-package com.coderobust.StickyNotes;
+package com.coderobust.StickyNotes.data;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

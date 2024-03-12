@@ -1,4 +1,4 @@
-package com.coderobust.StickyNotes;
+package com.coderobust.StickyNotes.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.coderobust.StickyNotes.NoteDetailsActivity;
+import com.coderobust.StickyNotes.viewHolders.NoteItemViewHolder;
 import com.coderobust.StickyNotes.R;
+import com.coderobust.StickyNotes.data.NoteItem;
 import com.google.gson.Gson;
 
 import java.util.List;

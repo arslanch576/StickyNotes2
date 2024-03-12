@@ -1,10 +1,12 @@
-package com.coderobust.StickyNotes;
+package com.coderobust.StickyNotes.data.room;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.coderobust.StickyNotes.data.NoteItem;
 
 @Database(entities = {NoteItem.class}, version = 1)
 //@TypeConverters(value = {MyTypeConverter.class})
