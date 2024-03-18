@@ -11,6 +11,7 @@ public class NoteItem {
     String createdAt;
     String updatedAt;
     String description;
+    boolean isFvt=false;
 
     public NoteItem() {
     }
@@ -20,6 +21,14 @@ public class NoteItem {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.description = description;
+    }
+
+    public boolean isFvt() {
+        return isFvt;
+    }
+
+    public void setFvt(boolean fvt) {
+        isFvt = fvt;
     }
 
     public int getId() {

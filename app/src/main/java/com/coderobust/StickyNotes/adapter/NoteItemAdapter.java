@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.coderobust.StickyNotes.NoteDetailsActivity;
+import com.coderobust.StickyNotes.data.room.AppDatabase;
 import com.coderobust.StickyNotes.viewHolders.NoteItemViewHolder;
 import com.coderobust.StickyNotes.R;
 import com.coderobust.StickyNotes.data.NoteItem;
@@ -40,10 +41,27 @@ public class NoteItemAdapter extends RecyclerView.Adapter<NoteItemViewHolder> {
         holder.details.setText(noteItem.getDescription());
         holder.date.setText(noteItem.getCreatedAt());
         holder.title.setText(noteItem.getTitle());
+        holder.fvt.setImageResource(noteItem.isFvt()?R.drawable.star_filled:R.drawable.star_empty);
+
         holder.post.setOnClickListener(v -> {
             Intent intent=new Intent(context, NoteDetailsActivity.class);
             intent.putExtra("data",new Gson().toJson(noteItem));
             context.startActivity(intent);
+        });
+        holder.fvt.setOnClickListener(v -> {
+            noteItem.setFvt(!noteItem.isFvt());
+            AppDatabase.getDatabase(context).noteItemDao().update(noteItem);
+            holder.fvt.setImageResource(noteItem.isFvt()?R.drawable.star_filled:R.drawable.star_empty);
+//
+//            if (noteItem.isFvt()){
+//                noteItem.setFvt(false);
+//                AppDatabase.getDatabase(context).noteItemDao().update(noteItem);
+//                holder.fvt.setImageResource(R.drawable.star_empty);
+//            }else {
+//                noteItem.setFvt(true);
+//                AppDatabase.getDatabase(context).noteItemDao().update(noteItem);
+//                holder.fvt.setImageResource(R.drawable.star_filled);
+//            }
         });
     }
 
