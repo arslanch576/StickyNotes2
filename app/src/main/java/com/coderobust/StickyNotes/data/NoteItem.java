@@ -12,6 +12,7 @@ public class NoteItem {
     String updatedAt;
     String description;
     boolean isFvt=false;
+    boolean isDeleted=false;
 
     public NoteItem() {
     }
@@ -21,6 +22,14 @@ public class NoteItem {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.description = description;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
     public boolean isFvt() {

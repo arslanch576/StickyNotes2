@@ -47,7 +47,8 @@ public class NoteDetailsActivity extends AppCompatActivity {
             alert.setMessage("Are you sure you want to delete?");
             alert.setCancelable(false);
             alert.setPositiveButton("Yes, delete", (dialog, which) -> {
-                AppDatabase.getDatabase(this).noteItemDao().delete(noteItem);
+                noteItem.setDeleted(true);
+                AppDatabase.getDatabase(this).noteItemDao().update(noteItem);
                 Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show();
                 finish();
             });

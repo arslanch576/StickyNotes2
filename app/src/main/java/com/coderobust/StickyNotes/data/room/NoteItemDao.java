@@ -14,8 +14,12 @@ import java.util.List;
 
 @Dao
 public interface NoteItemDao {
-    @Query("SELECT * FROM NoteItem order by id desc limit 500")
+    @Query("SELECT * FROM NoteItem where isDeleted=0 order by id desc limit 500")
     List<NoteItem> getAll();
+    @Query("SELECT * FROM NoteItem where isFvt=1 and isDeleted=0 order by id desc limit 500")
+    List<NoteItem> getAllFvt();
+    @Query("SELECT * FROM NoteItem where isDeleted=1 order by id desc limit 500")
+    List<NoteItem> getAllDeleted();
     @Query("SELECT * FROM NoteItem limit 500")
     LiveData<List<NoteItem>> liveGetAll();
     
